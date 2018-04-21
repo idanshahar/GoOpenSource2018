@@ -2,7 +2,7 @@ Go Open Source 2018 - Nodeless Jenkins Pipeline
 =================================
 Presentation
 ------------
-[Nodeless Jenkins Pipeline](https://ptdrv.linkedin.com/dif0yfi)
+[Nodeless Jenkins Pipeline](https://ptdrv.linkedin.com/bazvghj)
 
 Prerequisites
 ------------
@@ -13,12 +13,10 @@ Prerequisites
 5. Docker - [Installation Instructions](https://docs.docker.com/install/)
 6. Azure CLI - [Installation Instructions](https://docs.docker.com/install/) 
 
- A running Kubernetes Cluster - [AKS Instructions](https://azure.github.io/projects/clis/)
-
 
 Setup Azure Managed Kubernetes Cluster using Terraform
 ------------------------------------------------------
-### Terraform AKS Configuration .tf
+### Terraform AKS Configuration (.tf file)
 ```
 resource "azurerm_resource_group" "test" {
   name     = "my_terraform_k8s"
@@ -105,7 +103,7 @@ helm install --name jenkins stable/jenkins --set Persistence.StorageClass=defaul
 ```
 printf $(kubectl get secret --namespace default jenkins-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 ```
-### Build a Docker Image for Jenkins Slave on your own
+### Build a Slave Docker Image on your own
 ```
 git clone https://github.com/idanshahar/K8SCodeComponentsMeetup.git
 
@@ -137,6 +135,8 @@ Containerize applications using Draft
 cd node-draft
 
 draft init #initialize draft
+
+draft config set registry $DockerHubUsername
 
 draft create 
 

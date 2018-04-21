@@ -1,4 +1,13 @@
 
+provider "azurerm" {
+  subscription_id = "..."
+  client_id       = "..."
+  client_secret   = "..."
+  tenant_id       = "..."
+  version         = "1.3.3"
+}
+
+
 resource "azurerm_resource_group" "test" {
   name     = "my_terraform_k8s"
   location = "West Europe"
@@ -36,5 +45,5 @@ resource "azurerm_kubernetes_cluster" "test" {
   }
 }
 # hcl language
-# https://github.com/hashicorp/hcld
+# https://github.com/hashicorp/hcl
 # https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html
